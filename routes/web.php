@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -10,3 +11,6 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return view('about');
 });
+
+// Route untuk halaman dashboard
+Route::get('/dashboard', [DashboardController::class, 'index']);
