@@ -1,11 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AboutControllers;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/about', function () {
-    return "halaman about";
-});
+Route::resource('about', AboutControllers::class);
