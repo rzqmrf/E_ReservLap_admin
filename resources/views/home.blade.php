@@ -6,7 +6,7 @@
     <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Selamat Datang di MyCompany</h1>
+            <h1>Selamat Datang di Company</h1>
             <p class="hero-subtitle">Kami menyediakan solusi digital terbaik untuk bisnis Anda</p>
             <div class="hero-buttons">
                 <a href="#" class="btn btn-primary">Pelajari Lebih Lanjut</a>
@@ -28,11 +28,6 @@
                 <div class="feature-icon">🔒</div>
                 <h3>Aman & Terpercaya</h3>
                 <p>Keamanan data Anda adalah prioritas utama kami dengan enkripsi tingkat enterprise.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">💡</div>
-                <h3>Inovatif</h3>
-                <p>Teknologi terkini dan pemikiran kreatif untuk solusi yang selalu selangkah lebih maju.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">👥</div>
