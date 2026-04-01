@@ -1,3 +1,3 @@
 <footer></footer>
-    <p>&copy; 2026 MyCompany. All rights reserved.</p>
+    <p>&copy; 2026 E-ReservLap. All rights reserved.</p>
 </footer>

@@ -1,5 +1,5 @@
 <nav class="navbar">
-    <div class="logo">MyCompany</div>
+    <div class="logo">reserv</div>
     <ul class="nav-links">
         <li><a href="/">Home</a></li>
         <li><a href="/about">About</a></li>
