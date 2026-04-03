@@ -37,8 +37,8 @@ class _MainNavigationState extends State<MainNavigation> {
           onTap: (i) => setState(() => _currentIndex = i),
           type: BottomNavigationBarType.fixed,
           backgroundColor: Colors.white,
-          selectedItemColor: AppTheme.primaryStart,
-          unselectedItemColor: AppTheme.textMuted,
+          selectedItemColor: AppColors.primary,
+          unselectedItemColor: AppColors.textSecondary,
           selectedLabelStyle:
               const TextStyle(fontWeight: FontWeight.w600, fontSize: 11),
           unselectedLabelStyle: const TextStyle(fontSize: 11),
@@ -58,11 +58,6 @@ class _MainNavigationState extends State<MainNavigation> {
               icon: Icon(Icons.calendar_month_outlined),
               activeIcon: Icon(Icons.calendar_month_rounded),
               label: 'Booking',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.admin_panel_settings_outlined),
-              activeIcon: Icon(Icons.admin_panel_settings_rounded),
-              label: 'Admin',
             ),
           ],
         ),
