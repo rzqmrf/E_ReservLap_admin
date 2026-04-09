@@ -1,6 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\FieldController;
+
+Route::prefix('api')->group(function () {
+    Route::apiResource('users', UserController::class);
+    Route::apiResource('fields', FieldController::class);
+});
 
 // Route untuk halaman home
 Route::get('/', function () {
@@ -20,4 +27,12 @@ Route::get('/contact', function () {
 // Route untuk halaman features
 Route::get('/features', function () {
     return view('features');
+});
+
+Route::get('/users-page', function () {
+    return view('users');
+});
+
+Route::get('/fields', function () {
+    return view('fields');
 });

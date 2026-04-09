@@ -5,5 +5,7 @@
         <li><a href="/about">About</a></li>
         <li><a href="/contact">Contact</a></li>
         <li><a href="/features">Features</a></li>
+        <li><a href="/users-page">Users</a></li>
+        <li><a href="/fields">Fields</a></li>
     </ul>
 </nav>

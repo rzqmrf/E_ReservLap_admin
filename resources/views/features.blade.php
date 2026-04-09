@@ -5,7 +5,6 @@
     <!-- HERO -->
     <section class="features-hero">
         <h1>Fitur E-ReservLap</h1>
-        <p>Solusi lengkap untuk reservasi lapangan olahraga yang mudah dan efisien</p>
     </section>
 
     <!-- FEATURES LIST -->
@@ -49,13 +48,6 @@
             </div>
 
         </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="features-cta">
-        <h2>Mulai Gunakan Sekarang</h2>
-        <p>Reservasi lapangan jadi lebih mudah dan praktis</p>
-        <a href="/booking" class="btn btn-primary btn-large">Booking Sekarang</a>
     </section>
 
 @endsection
