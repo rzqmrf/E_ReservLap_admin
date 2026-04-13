@@ -44,7 +44,7 @@
                     <label class="form-label">Harga / Jam</label>
                     <div class="input-prefix-wrap">
                         <span class="input-prefix">Rp</span>
-                        <input type="number" id="price" class="form-input has-prefix" placeholder="50000">
+                        <input type="number" id="price" class="form-input has-prefix" placeholder="50.000">
                     </div>
                 </div>
 
@@ -455,7 +455,8 @@ function save() {
     const id          = document.getElementById('id').value;
     const name        = document.getElementById('name').value.trim();
     const type        = document.getElementById('type').value.trim();
-    const price       = document.getElementById('price').value;
+    const priceInput  = document.getElementById('price').value;
+    const price       = parseInt(priceInput.replace(/\D/g, ''));
     const status      = document.getElementById('status').value;
     const description = document.getElementById('description').value.trim();
 

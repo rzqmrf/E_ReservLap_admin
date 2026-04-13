@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');           // nama lapangan
             $table->string('type');           // jenis: futsal, badminton, dll
-            $table->decimal('price', 10, 2); // harga per jam
+            $table->decimal('price'); // harga per jam
             $table->enum('status', ['available', 'unavailable'])->default('available');
             $table->text('description')->nullable();
             $table->timestamps();

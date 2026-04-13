@@ -299,34 +299,40 @@
 </style>
 
 <script>
-const CSRF_TOKEN = '{{ csrf_token() }}';
+async function fetchStat(url, statusId) {
+    try {
+        const res = await fetch(url, {
+            headers: { 'Accept': 'application/json' }
+        });
+        if (!res.ok) throw new Error();
+        const data = await res.json();
+        document.getElementById(statusId).className   = 'status-ok';
+        document.getElementById(statusId).textContent = '● Online';
+        return data;
+    } catch {
+        document.getElementById(statusId).className   = 'status-err';
+        document.getElementById(statusId).textContent = '● Error';
+        return [];
+    }
+}
 
-Promise.all([
-    fetch('/api/users').then(r => r.json()),
-    fetch('/api/fields').then(r => r.json()),
-    fetch('/api/schedules').then(r => r.json()),
-    fetch('/api/bookings').then(r => r.json()),
-    fetch('/api/payments').then(r => r.json()),
-]).then(([users, fields, schedules, bookings, payments]) => {
+(async () => {
+    const [users, fields, schedules, bookings, payments] = await Promise.all([
+        fetchStat('/api/users',     'status-users'),
+        fetchStat('/api/fields',    'status-fields'),
+        fetchStat('/api/schedules', 'status-schedules'),
+        fetchStat('/api/bookings',  'status-bookings'),
+        fetchStat('/api/payments',  'status-payments'),
+    ]);
+
     document.getElementById('total-users').textContent        = users.length;
     document.getElementById('total-fields').textContent       = fields.length;
     document.getElementById('available-fields').textContent   = fields.filter(f => f.status === 'available').length;
-    document.getElementById('unavailable-fields').textContent = fields.filter(f => f.status === 'unavailable').length;
+    document.getElementById('unavailable-fields').textContent = fields.filter(f => f.status !== 'available').length;
     document.getElementById('total-schedules').textContent    = schedules.length;
     document.getElementById('total-bookings').textContent     = bookings.length;
     document.getElementById('total-payments').textContent     = payments.length;
-
-    document.getElementById('status-users').textContent     = '● Online';
-    document.getElementById('status-fields').textContent    = '● Online';
-    document.getElementById('status-schedules').textContent = '● Online';
-    document.getElementById('status-bookings').textContent  = '● Online';
-    document.getElementById('status-payments').textContent  = '● Online';
-}).catch(() => {
-    ['status-users','status-fields','status-schedules','status-bookings','status-payments'].forEach(id => {
-        document.getElementById(id).className   = 'status-err';
-        document.getElementById(id).textContent = '● Error';
-    });
-});
+})();
 </script>
 
 @endsection
