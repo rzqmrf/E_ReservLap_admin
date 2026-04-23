@@ -7,13 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Field extends Model
 {
     protected $fillable = [
-    'name',
-    'type',
-    'price',
-    'capacity',  
-    'status',
-    'description',
-];
+        'name',
+        'foto_lapangan',
+        'type',
+        'price',
+        'capacity',
+        'status',
+        'description',
+    ];
 
     public function schedules()
     {

@@ -9,8 +9,8 @@
             <h1>Selamat Datang di E-ReservLap</h1>
             <p class="hero-subtitle">Solusi mudah untuk reservasi berbagai lapangan olahraga secara cepat dan realtime</p>
             <div class="hero-buttons">
-                <a href="/fields" class="btn btn-primary">Lihat Lapangan</a>
-                <a href="/contact" class="btn btn-secondary">Booking Sekarang</a>
+                <a href="{{ route('login') }}" class="btn btn-primary">Booking Sekarang</a>
+                <!-- <a href="/contact" class="btn btn-secondary">Booking Sekarang</a> -->
             </div>
         </div>
     </section>

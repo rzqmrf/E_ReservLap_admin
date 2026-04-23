@@ -22,6 +22,13 @@ class DatabaseSeeder extends Seeder
             'role' => 'admin', // Pastiin kolom 'role' ada di migrasi tabel user lu!
         ]);
 
+        \App\Models\User::create([
+            'name' => 'User Biasa',
+            'email' => 'user@gmail.com',
+            'password' => \Illuminate\Support\Facades\Hash::make('password'),
+            'role' => 'user',
+        ]);
+
         $this->call([
             FieldSeeder::class,
             ScheduleSeeder::class,
