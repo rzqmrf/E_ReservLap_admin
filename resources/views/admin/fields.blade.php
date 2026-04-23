@@ -35,6 +35,14 @@
                     <input type="text" id="name" class="form-input" placeholder="Contoh: Lapangan A">
                 </div>
 
+                <div class="form-group">
+                    <label class="form-label">Status</label>
+                    <select id="status" class="form-input">
+                        <option value="available">Available</option>
+                        <option value="unavailable">Unavailable</option>
+                    </select>
+                </div>
+
                 <div class="form-group full-width">
                     <label class="form-label">Foto Lapangan <span class="optional">(opsional)</span></label>
                     <div class="upload-zone" id="upload-zone" onclick="document.getElementById('foto_lapangan').click()" ondragover="event.preventDefault();this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="handleDrop(event)">
@@ -60,14 +68,6 @@
                         <span class="input-prefix">Rp</span>
                         <input type="number" id="price" class="form-input has-prefix" placeholder="50.000">
                     </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label">Status</label>
-                    <select id="status" class="form-input">
-                        <option value="available">Available</option>
-                        <option value="unavailable">Unavailable</option>
-                    </select>
                 </div>
 
                 <div class="form-group full-width">
@@ -686,11 +686,22 @@
                 headers: { 'X-CSRF-TOKEN': getToken() },
                 body: formData
             })
-            .then(res => {
-                if (!res.ok) return res.json().then(e => {
-                    throw new Error(e.message || 'Gagal menyimpan')
-                });
-                return res.json();
+            .then(async res => {
+                const text = await res.text();
+
+                try {
+                    const data = JSON.parse(text);
+
+                    if (!res.ok) {
+                        throw new Error(data.message || 'Gagal menyimpan');
+                    }
+
+                    return data;
+
+                } catch (e) {
+                    console.error('Response bukan JSON:', text);
+                    throw new Error('Server error (bukan JSON)');
+                }
             })
             .then(() => {
                 showAlert(isUpdate ? '✅ Lapangan berhasil diperbarui!' : '✅ Lapangan berhasil ditambahkan!');

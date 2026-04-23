@@ -52,7 +52,7 @@
     <div class="fields-card">
         <div class="fields-card-header">
             <span class="section-tag">Data Users</span>
-            <h3>Daftar Pengguna Terdaftar</h3>
+            <h3>Daftar Pengguna</h3>
         </div>
 
         <div class="table-wrap">
