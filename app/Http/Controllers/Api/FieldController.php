@@ -13,7 +13,7 @@ class FieldController extends Controller
     public function index()
     {
         return response()->json(
-            Field::all(['id', 'name', 'foto_lapangan', 'type', 'price', 'status', 'description'])
+            Field::all(['id', 'name', 'foto_lapangan', 'type', 'price', 'capacity', 'status', 'description'])
         );
     }
 

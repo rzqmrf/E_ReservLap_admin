@@ -327,7 +327,7 @@
         <div class="fields-header">
             <div>
                 <h3>Lapangan</h3>
-                <p>{{ $lapangans->count() }} tersedia</p>
+                <p>{{ $lapangans->count() }} lapangan</p>
             </div>
             <a href="{{ route('lapangan.index') }}" class="btn-see-all">Lihat Semua</a>
         </div>
@@ -337,8 +337,8 @@
             <div class="field-card">
                 <div class="field-img-wrapper">
                     <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=400" />
-                    <div class="status-pill {{ $field->status == 'available' ? 'status-available' : 'status-unavailable' }}">
-                        {{ $field->status == 'available' ? 'Tersedia' : 'Penuh' }}
+                    <div class="status-pill {{ $field->status == 'available' ? 'status-available' : 'status-full' }}">
+                        {{ $field->status == 'available' ? 'Tersedia' : 'Tidak Tersedia' }}
                     </div>
                 </div>
 

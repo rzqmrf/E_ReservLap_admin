@@ -77,12 +77,14 @@ Route::middleware('auth')->group(function () {
     // KHUSUS USER BIASA
     Route::middleware('role:user')->group(function () {
         Route::get('/home', function() {
-            $lapangans = \App\Models\Field::where('status', 'available')->latest()->take(3)->get();
+            $lapangans = \App\Models\Field::latest()->take(3)->get();
             return view('Home.Home', compact('lapangans'));
         })->name('user.home');
 
         Route::get('/lapangan', function() {
-            $lapangans = \App\Models\Field::where('status', 'available')->get();
+            $lapangans = \App\Models\Field::withCount(['bookings as bookings_today_count' => function($query) {
+                $query->whereDate('created_at', now()->toDateString());
+            }])->get();
             return view('Home.Lapangan', compact('lapangans'));
         })->name('lapangan.index');
 
